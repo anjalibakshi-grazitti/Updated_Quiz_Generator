@@ -189,8 +189,9 @@ if st.button("Generate Quiz"):
             if output_type == "Generate CSV":
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 csv_file = f"generated_quiz_{timestamp}.csv"
-                df_mcq.to_csv(csv_file, sep="\t", index=False)
-                st.download_button("⬇️ Download CSV", csv_file, file_name=csv_file)
+                csv_content = df_mcq.to_csv(sep="\t", index=False).encode('utf-8')
+                st.download_button(label = "⬇️ Download CSV", data = csv_content,
+                                   file_name = csv_file, mime= "text/csv")
 
             elif output_type == "Generate & Upload JSON to HireIT":
                 hireit_response = upload_to_hireit(df_mcq)
@@ -199,3 +200,4 @@ if st.button("Generate Quiz"):
                 else:
                     st.success("✅ Successfully uploaded JSON to HireIT!")
                     st.json(hireit_response)
+
