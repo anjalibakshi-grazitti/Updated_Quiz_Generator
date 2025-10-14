@@ -1,0 +1,11 @@
+streamlit==1.48.1
+langchain
+langchain-openai
+langchain-community
+langchain-text-splitters
+pypdf
+python-docx
+yagmail
+python-dotenv
+openai
+faiss-cpu
