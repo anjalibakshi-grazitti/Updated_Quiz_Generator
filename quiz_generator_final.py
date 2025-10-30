@@ -3,7 +3,7 @@
 # ==========================================
 
 import streamlit as st
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import PyPDFLoader, TextLoader, Docx2txtLoader
 from openai import OpenAI
 import pandas as pd
@@ -200,4 +200,5 @@ if st.button("Generate Quiz"):
                 else:
                     st.success("✅ Successfully uploaded JSON to HireIT!")
                     st.json(hireit_response)
+
 
